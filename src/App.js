@@ -3,8 +3,8 @@ import * as BooksAPI from './BooksAPI'
 import './App.css'
 import Header from './components/Header';
 import BookShelves from './components/BookShelves';
-import ChangePage from './components/ChangePage';
 import DisplaySearches from './components/DisplaySearches';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 class BooksApp extends React.Component {
   state = {
@@ -20,7 +20,7 @@ class BooksApp extends React.Component {
   /** Fetches all the books that we have on our shelves from the API */
   async componentDidMount() {
     const response = await BooksAPI.getAll()
-    if(response.error) {
+    if (response.error) {
       console.log("Network Error...")
     }
     this.setState({ fetchedBooks: response })
@@ -43,24 +43,38 @@ class BooksApp extends React.Component {
 
   render() {
     return (
-      <div className="app">
-        {this.state.showSearchPage ? (
-          <DisplaySearches
-            onButtonClick={this.onButtonClick}
-            changeBookShelf={this.changeBookShelf}
-            fetchedBooks={this.state.fetchedBooks}
-          />
-        ) : (
+      <Router>
+        <div className="app">
+          <Switch>
+            <Route exact path="/search">
+              <DisplaySearches
+                onButtonClick={this.onButtonClick}
+                changeBookShelf={this.changeBookShelf}
+                fetchedBooks={this.state.fetchedBooks}
+              />
+            </Route>
+          </Switch>
           <div className="list-books">
-            <Header />
-            <BookShelves
-              books={this.state.fetchedBooks}
-              onShelfChange={this.changeBookShelf} 
-            />
-            <ChangePage onButtonClick={this.onButtonClick} />
+            <Switch>
+              <Route exact path="/">
+                <Header />
+                <BookShelves
+                  books={this.state.fetchedBooks}
+                  onShelfChange={this.changeBookShelf}
+                />
+              </Route>
+            </Switch>
+
+            <div className="open-search">
+              { /**This will return true if the button is clicked and 
+                 * we will move to the Search Page */ }
+              <Link to="/search">
+                <button>Add a book</button>
+              </Link>
+            </div>
           </div>
-        )}
-      </div>
+        </div>
+      </Router>
     )
   }
 }
