@@ -32,18 +32,19 @@ To get started developing right away:
     ├── App.css # Styles for your app. Feel free to customize this as you desire.
     ├── App.js # This is the root of your app. Contains static HTML right now.
     ├── App.test.js # Used for testing. Provided with Create React App. Testing is encouraged, but not required.
-    ├── BookContent.js # Used to render the books after being searched
-    ├── BookShelf..js # This will be used to render each single shelves
-    ├── BookShelves.js # This will render all the shelves
-    ├── ChangeShelf.js # This file component will be used to change the shelves of the books according to the users needs and will update the BooksAPI
-    ├── DisplaySearches.js # As the name suggests it will be used to display the book fetched after a user searches them by entering a term on the search bar 
-    ├── GetBooks.js # This component will be used to render the books that the users currently has in their shelves
-    ├── Header.js # A simple component created for the header with an assumption that menus might be added in the future
     ├── BooksAPI.js # A JavaScript API for the provided Udacity backend. Instructions for the methods are below.
     ├── icons # Helpful images for your app. Use at your discretion.
     │   ├── add.svg
     │   ├── arrow-back.svg
     │   └── arrow-drop-down.svg
+    ├── components # Consists of all the component created in the project
+    │    ├── BookContent.js # Used to render the books after being searched
+    │    ├── BookShelf..js # This will be used to render each single shelves
+    │    ├── BookShelves.js # This will render all the shelves
+    │    ├── ChangeShelf.js # This file component will be used to change the shelves of the books according to the users needs and will update the BooksAPI
+    │    ├── DisplaySearches.js # As the name suggests it will be used to display the book fetched after a user searches them by entering a term on the search bar 
+    │    ├── GetBooks.js # This component will be used to render the books that the users currently has in their shelves
+    │    └── Header.js # A simple component created for the header with an assumption that menus might be added in the future
     ├── index.css # Global styles. You probably won't need to change anything here.
     └── index.js # You should not need to modify this file. It is used for DOM rendering only.
 ```
