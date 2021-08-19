@@ -2,7 +2,7 @@ import React from 'react';
 import ChangeShelf from './ChangeShelf';
 
 /**This component will render each book provided to it */
-const BookContent = ({ book, onShelfChange }) => {
+const BookContent = ({ key, book, onShelfChange }) => {
 	return (
 		<li key={book.id}>
 			<div className="book">
