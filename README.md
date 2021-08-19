@@ -1,8 +1,16 @@
 # MyReads Project
 
-This is the starter template for the final assessment project for Udacity's React Fundamentals course. The goal of this template is to save you time by providing a static example of the CSS and HTML markup that may be used, but without any of the React code that is needed to complete the project. If you choose to start with this template, your job will be to add interactivity to the app by refactoring the static code in this template.
+This project was create as part of Xord's Summer Blockship Programs. I went through all the provided resources and also learned other things such as routing by myself from online platforms such as YouTube. 
 
-Of course, you are free to start this project from scratch if you wish! Just be sure to use [Create React App](https://github.com/facebookincubator/create-react-app) to bootstrap the project.
+It is book categorization app which allows users to categorize books in three shelves namely; Currently Reading, Want To Read and Read. The users can move the books to different shelves and also remove them from shelves. An add button is also provided which allows the users to move to the search page where they can search for books and add them to their desired shelves. The user can move back to the homepage where they will find the books in their respective shelves as they were added by them on the search page.
+
+# Home Page
+
+![Home](https://user-images.githubusercontent.com/60378949/130049808-dc6fe2cc-6303-4296-ab4f-59f831508f1c.PNG)
+
+# Search Page
+
+![Search](https://user-images.githubusercontent.com/60378949/130049852-f0f6fb0b-a5ac-4b8e-8b0f-94f0b42db502.PNG)
 
 ## TL;DR
 
@@ -24,6 +32,13 @@ To get started developing right away:
     ├── App.css # Styles for your app. Feel free to customize this as you desire.
     ├── App.js # This is the root of your app. Contains static HTML right now.
     ├── App.test.js # Used for testing. Provided with Create React App. Testing is encouraged, but not required.
+    ├── BookContent.js # Used to render the books after being searched
+    ├── BookShelf..js # This will be used to render each single shelves
+    ├── BookShelves.js # This will render all the shelves
+    ├── ChangeShelf.js # This file component will be used to change the shelves of the books according to the users needs and will update the BooksAPI
+    ├── DisplaySearches.js # As the name suggests it will be used to display the book fetched after a user searches them by entering a term on the search bar 
+    ├── GetBooks.js # This component will be used to render the books that the users currently has in their shelves
+    ├── Header.js # A simple component created for the header with an assumption that menus might be added in the future
     ├── BooksAPI.js # A JavaScript API for the provided Udacity backend. Instructions for the methods are below.
     ├── icons # Helpful images for your app. Use at your discretion.
     │   ├── add.svg
@@ -84,9 +99,3 @@ The backend API uses a fixed set of cached search results and is limited to a pa
 ## Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). You can find more information on how to perform common tasks [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
-
-## Contributing
-
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
-
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
