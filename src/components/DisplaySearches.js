@@ -1,6 +1,7 @@
 import React from 'react';
 import * as BooksAPI from '../BooksAPI';
 import GetBooks from './GetBooks';
+import { Link } from 'react-router-dom';
 
 class DisplaySearches extends React.Component {
   state = { term: '', books: [] }
@@ -37,7 +38,9 @@ class DisplaySearches extends React.Component {
         <div className="search-books-bar">
           { /** If close button is clicked this means we have to go back to the home page 
            * so the state changes to 'false' and the home page is rendered */ }
-          <button className="close-search" onClick={this.onButtonClick}>Close</button>
+          <Link to="/">
+            <button className="close-search" onClick={this.onButtonClick}>Close</button>
+          </Link>
           <div className="search-books-input-wrapper">
             <input
               type="text"
@@ -47,10 +50,10 @@ class DisplaySearches extends React.Component {
           </div>
         </div>
         <div className="search-books-results">
-          <GetBooks 
-            searchedBooks={this.state.books} 
-            fetchedBooks={this.props.fetchedBooks} 
-            changeBookShelf={this.props.changeBookShelf} 
+          <GetBooks
+            searchedBooks={this.state.books}
+            fetchedBooks={this.props.fetchedBooks}
+            changeBookShelf={this.props.changeBookShelf}
           />
         </div>
       </div>
