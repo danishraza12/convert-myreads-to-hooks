@@ -4,6 +4,10 @@ This project was created as part of Xord's Summer Blockship Program. I went thro
 
 It is a book categorization app which allows users to categorize books in three shelves namely; Currently Reading, Want To Read and Read. The users can move the books to different shelves and also remove them from shelves. An add button is also provided which allows the users to move to the search page via routing where they can search for books and add them to their desired shelves. The user can move back to the homepage by clicking the back button at the top left which consists of a link to the home page where they will find the books in their respective shelves as they were added/updated by them on the search page.
 
+# Link to live project
+
+https://bookcategorization.herokuapp.com/
+
 # Home Page
 
 ![Home](https://user-images.githubusercontent.com/60378949/130049808-dc6fe2cc-6303-4296-ab4f-59f831508f1c.PNG)
