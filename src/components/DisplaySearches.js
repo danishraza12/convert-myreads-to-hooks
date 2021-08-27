@@ -1,64 +1,71 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import * as BooksAPI from '../BooksAPI';
 import GetBooks from './GetBooks';
 import { Link } from 'react-router-dom';
 
-class DisplaySearches extends React.Component {
-  state = { term: '', books: [] }
 
-  /**Function for changing page */
-  onButtonClick = event => {
-    this.props.onButtonClick(false)
-  }
+const DisplaySearches = ({ changeBookShelf, fetchedBooks }) => {
+  const [term, setTerm] = useState('')
+  const [debouncedTerm, setDebouncedTerm] = useState(term)
+  const [books, setBooks] = useState([])
 
-  /**Function to track users input and call function to make API requests to fetch books */
-  onInputChange = event => {
-    this.setState({ term: event.target.value })
-    this.searchBooks(event.target.value)
-  }
+  /**Implementing debouncing to limit searches */
+  useEffect(() => {
+    const timerID = setTimeout(() => {
+      setDebouncedTerm(term)
+    }, 300)
+
+    /**Clearing timer after 300ms*/
+    return () => {
+      clearTimeout(timerID)
+    }
+  }, [term])
 
   /**This function will make an API request with the users entered term and fetch the results */
-  searchBooks = term => {
-    if (term.length !== 0) {
-      BooksAPI.search(term).then(books => {
-        if (!books.error) {
-          this.setState({ books })
-        } else {
-          this.setState({ books: [] })
-        }
-      })
-    } else {
-      this.setState({ books: [] })
-    }
-  }
+  /**We donot use async/await here as we have used the promise returned */
 
-  render() {
-    return (
-      <div className="search-books">
-        <div className="search-books-bar">
-          { /** If close button is clicked this means we have to go back to the home page 
+  useEffect(() => {
+    const searchBooks = term => {
+      if (term.length !== 0) {
+        BooksAPI.search(term).then(books => {
+          if (!books.error) {
+            setBooks(books)
+          } else {
+            setBooks([])
+          }
+        })
+      } else {
+        setBooks([])
+      }
+    }
+    searchBooks(term)
+  }, [term, debouncedTerm])
+
+  return (
+    <div className="search-books">
+      <div className="search-books-bar">
+        { /** If close button is clicked this means we have to go back to the home page 
            * so the state changes to 'false' and the home page is rendered */ }
-          <Link to="/">
-            <button className="close-search" onClick={this.onButtonClick}>Close</button>
-          </Link>
-          <div className="search-books-input-wrapper">
-            <input
-              type="text"
-              value={this.state.term}
-              onChange={this.onInputChange}
-              placeholder="Search by title or author" />
-          </div>
-        </div>
-        <div className="search-books-results">
-          <GetBooks
-            searchedBooks={this.state.books}
-            fetchedBooks={this.props.fetchedBooks}
-            changeBookShelf={this.props.changeBookShelf}
-          />
+        <Link to="/">
+          <button className="close-search">Close</button>
+        </Link>
+        <div className="search-books-input-wrapper">
+          <input
+            type="text"
+            value={term}
+            onChange={(e) => setTerm(e.target.value)}
+            placeholder="Search by title or author" />
         </div>
       </div>
-    )
-  }
+      <div className="search-books-results">
+        <GetBooks
+          searchedBooks={books}
+          fetchedBooks={fetchedBooks}
+          changeBookShelf={changeBookShelf}
+        />
+      </div>
+    </div>
+  )
 }
 
 export default DisplaySearches;
