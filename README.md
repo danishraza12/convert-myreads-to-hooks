@@ -1,12 +1,14 @@
 # MyReads Project
 
-This project was created as part of Xord's Summer Blockship Program. I went through all the provided resources and also learned other things such as routing by myself from online platforms such as YouTube. 
+This is the second assignment of Xord's Summer Blockship Program. I have implemented the same app using react hooks.
 
+# App Details
 It is a book categorization app which allows users to categorize books in three shelves namely; Currently Reading, Want To Read and Read. The users can move the books to different shelves and also remove them from shelves. An add button is also provided which allows the users to move to the search page via routing where they can search for books and add them to their desired shelves. The user can move back to the homepage by clicking the back button at the top left which consists of a link to the home page where they will find the books in their respective shelves as they were added/updated by them on the search page.
+Note: Deleted Yarn.lock
 
 # Link to live project
 
-https://bookcategorization.herokuapp.com/
+https://myreadshooks.herokuapp.com/
 
 # Home Page
 
@@ -30,17 +32,17 @@ To get started developing right away:
 ├── SEARCH_TERMS.md # The whitelisted short collection of available search terms for you to use with your app.
 ├── package.json # npm package manager file. It's unlikely that you'll need to modify this.
 ├── public
-│   ├── favicon.ico # React Icon, You may change if you wish.
-│   └── index.html # DO NOT MODIFY
+│   ├── favicon.ico # React Icon, You may change if you wish.
+│   └── index.html # DO NOT MODIFY
 └── src
     ├── App.css # Styles for your app. Feel free to customize this as you desire.
     ├── App.js # This is the root of your app. Contains static HTML right now.
     ├── App.test.js # Used for testing. Provided with Create React App. Testing is encouraged, but not required.
     ├── BooksAPI.js # A JavaScript API for the provided Udacity backend. Instructions for the methods are below.
     ├── icons # Helpful images for your app. Use at your discretion.
-    │   ├── add.svg
-    │   ├── arrow-back.svg
-    │   └── arrow-drop-down.svg
+    │   ├── add.svg
+    │   ├── arrow-back.svg
+    │   └── arrow-drop-down.svg
     ├── components # Consists of all the component created in the project
     │    ├── BookContent.js # Used to render the books after being searched
     │    ├── BookShelf..js # This will be used to render each single shelves
@@ -100,7 +102,3 @@ search(query)
 
 ## Important
 The backend API uses a fixed set of cached search results and is limited to a particular set of search terms, which can be found in [SEARCH_TERMS.md](SEARCH_TERMS.md). That list of terms are the _only_ terms that will work with the backend, so don't be surprised if your searches for Basket Weaving or Bubble Wrap don't come back with any results.
-
-## Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). You can find more information on how to perform common tasks [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
